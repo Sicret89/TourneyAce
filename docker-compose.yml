@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dbname
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  tourneyace-backend-python:
+    container_name: tourneyace-backend-python
+    build:
+      context: .
+      dockerfile: docker/dev.dockerfile  # Use dev setup by default
+    env_file: env_file
+    volumes:
+      - ./src:/src
+    environment:
+      - DATABASE_URL=postgresql://user:password@db/dbname
+    ports:
+      - "7000:70"
+    depends_on:
+      - db
+    restart: always
+
+volumes:
+  postgres_data:
