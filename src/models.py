@@ -3,10 +3,11 @@ from typing import List, Optional
 from datetime import datetime
 
 class Admin(SQLModel, table=True):
-    id: int = Field(default=None, primary_key=True)
-    username: str = Field(unique=True, index=True)
-    email: str = Field(unique=True, index=True)
-    password: str  # Hash this before storing
+    """Admin model with login credentials."""
+    id: Optional[int] = Field(default=None, primary_key=True)
+    username: str
+    email: str
+    password: str  # Hashed password
 
     tournaments: List["Tournament"] = Relationship(back_populates="admin")
     players: List["Player"] = Relationship(back_populates="admin")

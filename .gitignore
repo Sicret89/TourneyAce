@@ -175,3 +175,6 @@ cython_debug/
 
 # Docker
 .dockerignore
+/alembic/env.py
+/alembic/README
+/alembic/script.py.mako
