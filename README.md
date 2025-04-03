@@ -1,6 +1,5 @@
-# VWGCUSTOMER DEMO - PYTHON BACKEND
+# Poker Tournament Manager - PYTHON BACKEND
 
-A microservice to forward requests associated with payment logic.
 To start service navigate to root dir and run in `wsl`:
 For Development:
 ```
