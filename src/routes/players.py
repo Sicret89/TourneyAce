@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlmodel import Session, select
 from database import get_session
-from auth.dependencies import get_current_admin
+from auth.security import get_current_admin
 from models import Player, Admin
 
 router = APIRouter(prefix="/players", tags=["Players"])

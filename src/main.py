@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 # from routes import players
-from auth.routes import router as auth_router
+from auth.auth_router import router as auth_router
 from database import init_db
 from routes.players import router as player_router
 

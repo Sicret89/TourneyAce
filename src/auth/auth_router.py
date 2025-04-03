@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
-from auth.dependencies import hash_password, verify_password, create_access_token, get_current_admin
+from auth.security import hash_password, verify_password, create_access_token, get_current_admin
 from database import get_session
 from models import Admin
 from datetime import timedelta
