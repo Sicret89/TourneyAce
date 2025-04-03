@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
@@ -7,9 +9,12 @@ from sqlmodel import Session, select
 from database import get_session
 from models import Admin
 
+# Load environment variables
+load_dotenv()
+
 # SECRET for JWT
-SECRET_KEY = "your_secret_key"
-ALGORITHM = "HS256"
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = os.getenv("ALGORITHM")
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
 # OAuth2 scheme

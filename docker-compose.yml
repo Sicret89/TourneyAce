@@ -16,7 +16,7 @@ services:
     build:
       context: .
       dockerfile: docker/dev.dockerfile  # Use dev setup by default
-    env_file: env_file
+    env_file: .env
     volumes:
       - ./src:/src
     environment:
